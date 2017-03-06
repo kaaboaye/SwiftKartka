@@ -88,6 +88,14 @@ namespace SwiftKartka
                 t(3, $"{Uczen.AdresZamieszkania.KodPocztowy}");
                 t(3, $"{Uczen.AdresZamieszkania.Ulica} {Uczen.AdresZamieszkania.NumerDomu}");
                 t(2, $"Srednia ocen: {Uczen.SredniaOcen()}");
+                t(2, @"Oceny: ");
+
+                string oceny = String.Empty;
+                foreach (byte ocena in Uczen.Oceny)
+                {
+                    oceny += ocena.ToString() + ", ";
+                }
+                t(3, $"{oceny}");
             }
         }
     }
