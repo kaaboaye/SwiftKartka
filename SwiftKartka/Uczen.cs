@@ -103,5 +103,43 @@ namespace SwiftKartka
 
             return suma / iloscOcen;
         }
+
+        public void PrintInfo()
+        {
+            void t(byte tab, string s)
+            {
+                for (byte n = 0; n < tab; n++)
+                {
+                    s = "  " + s;
+                }
+
+                Console.WriteLine(s);
+            }
+
+            void l(byte tab, string s)
+            {
+                for (byte n = 0; n < tab; n++)
+                {
+                    s = "  " + s;
+                }
+
+                Console.Write(s);
+            }
+
+            t(1, "");
+            t(1, $"Uczen: {Imie} {Nazwisko}");
+            t(2, @"Adres zamieszkania:");
+            t(3, $"{AdresZamieszkania.KodPocztowy}");
+            t(3, $"{AdresZamieszkania.Ulica} {AdresZamieszkania.NumerDomu}");
+            t(2, $"Srednia ocen: {SredniaOcen()}");
+            l(2, @"Oceny: ");
+
+            string oceny = String.Empty;
+            foreach (byte ocena in Oceny)
+            {
+                oceny += ocena.ToString() + ", ";
+            }
+            t(0, $"{oceny}");
+        }
     }
 }

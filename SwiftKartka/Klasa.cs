@@ -64,16 +64,6 @@ namespace SwiftKartka
                 Console.WriteLine(s);
             }
 
-            void t(byte tab, string s)
-            {
-                for (byte n = 0; n < tab; n++)
-                {
-                    s = "  " + s;
-                }
-
-                p(s);
-            }
-
             p($"Klasa: {NazwaKlasy}");
             p($"Wychowawca: {NazwiskoNauczyciela}");
             p($"Rocznik: {Rocznik}");
@@ -82,20 +72,7 @@ namespace SwiftKartka
 
             foreach (Uczen Uczen in Uczniowie)
             {
-                t(1, "");
-                t(1, $"Uczen: {Uczen.Imie} {Uczen.Nazwisko}");
-                t(2, @"Adres zamieszkania:");
-                t(3, $"{Uczen.AdresZamieszkania.KodPocztowy}");
-                t(3, $"{Uczen.AdresZamieszkania.Ulica} {Uczen.AdresZamieszkania.NumerDomu}");
-                t(2, $"Srednia ocen: {Uczen.SredniaOcen()}");
-                t(2, @"Oceny: ");
-
-                string oceny = String.Empty;
-                foreach (byte ocena in Uczen.Oceny)
-                {
-                    oceny += ocena.ToString() + ", ";
-                }
-                t(3, $"{oceny}");
+                Uczen.PrintInfo();
             }
         }
     }
